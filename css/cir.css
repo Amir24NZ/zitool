@@ -1,0 +1,317 @@
+/* css/cir.css - بر اساس comp.css */
+
+:root {
+    /* رنگ‌های اصلی زیتول */
+    --primary-color: #1361b9; /* آبی */
+    --secondary-bg-color: #292f34; /* خاکستری تیره */
+    --page-bg: #f8f8f8; /* بک‌گراند صفحه */
+    --header-footer-bg: var(--primary-color);
+    --header-footer-text: #ffffff;
+    --button-bg: var(--primary-color);
+    --button-text: #ffffff;
+    --button-hover-bg: #0f4c9c;
+
+    /* شعاع گوشه‌ها */
+    --border-radius-lg: 15px;
+
+    /* پدینگ و مارجین کلی */
+    --default-padding: 20px;
+    --section-padding: 50px;
+}
+
+/* ریست استایل‌های پیش‌فرض مرورگر */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    direction: rtl; /* جهت متن از راست به چپ */
+    text-align: right;
+    background-color: var(--page-bg);
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: var(--default-padding);
+    text-align: center;
+    border-bottom-left-radius: var(--border-radius-lg);
+    border-bottom-right-radius: var(--border-radius-lg);
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    bottom: 20px;
+    border-radius: 100%;
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 50px;
+        height: 50px;
+        left: 10px;
+        top: 10px;
+    }
+}
+
+main {
+    padding: var(--default-padding);
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.circle-cropper-section {
+    padding: var(--section-padding) var(--default-padding);
+    text-align: center;
+}
+
+.circle-cropper-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.upload-area {
+    border: 2px dashed #ccc;
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: var(--primary-color);
+}
+
+.upload-area.drag-over {
+    border-color: var(--primary-color);
+    background-color: #e0f0ff;
+}
+
+.upload-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    font-size: 1.1em;
+    display: inline-block;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.upload-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+}
+
+.file-name {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.drag-drop-text {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.image-processing-area {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: var(--border-radius-lg);
+}
+
+.image-processing-area h3 {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.canvas-container {
+    width: 100%;
+    max-width: 400px; /* حداکثر اندازه برای کادر کانواس */
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden; /* برای اطمینان از اینکه تصویر از کادر خارج نمی‌شود */
+    position: relative; /* برای موقعیت‌دهی دایره برش */
+    background-color: #fff; /* پس زمینه سفید برای canvas */
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: grab; /* نشانگر موس برای جابجایی */
+    touch-action: none; /* جلوگیری از اسکرول صفحه در زمان لمس و جابجایی */
+}
+
+.instruction-text {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* دکمه‌ها */
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button#downloadButton {
+    background-color: #28a745;
+    color: white;
+    font-size: 1.1em;
+    padding: 15px 30px;
+}
+
+button#downloadButton:hover {
+    background-color: #218838;
+}
+
+.status-message {
+    margin-top: 30px;
+    font-size: 1em;
+    color: #666;
+    text-align: center;
+}
+
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: var(--default-padding);
+    margin-top: 40px;
+    border-top-left-radius: var(--border-radius-lg);
+    border-top-right-radius: var(--border-radius-lg);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    direction: rtl;
+    position: relative;
+    min-height: 100px;
+    padding-bottom: calc(var(--default-padding) + 10px);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.footer-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+
+.footer-text-content p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.english-copyright {
+    direction: ltr;
+    text-align: center;
+}
+
+.made-by-text {
+    font-size: 0.85em;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.zobbo-link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.zobbo-link:hover {
+    color: #0d7a0d;
+}
+
+.footer-logo-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+    line-height: 0;
+    z-index: 10;
+}
+
+.footer-logo-linkz {
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    display: block;
+    line-height: 0;
+    z-index: 10;
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}

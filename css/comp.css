@@ -1,0 +1,498 @@
+/* css/comp.css */
+
+:root {
+    /* رنگ‌های اصلی زیتول */
+    --primary-color: #1361b9; /* آبی */
+    --secondary-bg-color: #292f34; /* خاکستری تیره */
+    --page-bg: #f8f8f8; /* بک‌گراند صفحه */
+    --header-footer-bg: var(--primary-color);
+    --header-footer-text: #ffffff;
+    --button-bg: var(--primary-color);
+    --button-text: #ffffff;
+    --button-hover-bg: #0f4c9c;
+
+    /* شعاع گوشه‌ها */
+    --border-radius-lg: 15px;
+
+    /* پدینگ و مارجین کلی */
+    --default-padding: 20px;
+    --section-padding: 50px;
+
+    /* رنگ‌های جدید برای کادرهای حجم */
+    --original-size-color: #e74c3c; /* رنگ قرمز برای حجم اصلی */
+    --compressed-size-color: #28a745; /* رنگ سبز برای حجم فشرده شده */
+}
+
+/* ریست استایل‌های پیش‌فرض مرورگر */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    direction: rtl; /* جهت متن از راست به چپ */
+    text-align: right;
+    background-color: var(--page-bg);
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: var(--default-padding);
+    text-align: center;
+    border-bottom-left-radius: var(--border-radius-lg);
+    border-bottom-right-radius: var(--border-radius-lg);
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    bottom: 20px;
+    border-radius: 100%;
+  }
+
+  @media (max-width: 600px) { /* میتونی این مقدار 600px رو تغییر بدی */
+    .logo {
+        width: 50px; /* اندازه کوچکتر برای موبایل */
+        height: 50px;
+        left: 10px; /* اگر نیاز بود موقعیت رو هم تغییر بده */
+        top: 10px;
+    }
+}
+
+main {
+    padding: var(--default-padding);
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  main {
+    margin: 20px;
+  }
+}
+
+.comp-section {
+    padding: var(--section-padding) var(--default-padding);
+    text-align: center;
+}
+
+.comp-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.upload-area {
+    border: 2px dashed #ccc;
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: var(--primary-color);
+}
+
+.upload-area.drag-over {
+    border-color: var(--primary-color);
+    background-color: #e0f0ff;
+}
+
+.upload-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    font-size: 1.1em;
+    display: inline-block;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.upload-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+}
+
+.file-name {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.drag-drop-text {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.compression-settings {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: var(--border-radius-lg);
+}
+
+.compression-settings h3 {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.compression-settings label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.compression-settings input[type="range"] {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.compression-settings input[type="range"]:hover {
+    opacity: 1;
+}
+
+.compression-settings input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+}
+
+.compression-settings input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+}
+
+
+.image-preview {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    min-height: 200px;
+    flex-wrap: wrap;
+    direction: ltr; /* برای قرار دادن عکس اصلی سمت چپ و فشرده شده سمت راست */
+}
+
+.image-preview img {
+    max-width: 45%; /* کمی کمتر از نصف برای فاصله */
+    max-height: 300px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    cursor: pointer; /* نشانگر موس برای قابلیت کلیک */
+}
+
+
+/* دکمه‌ها */
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* گروه دکمه‌ها برای وسط‌چین کردن با Flexbox */
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* استایل‌های خاص دکمه‌های این صفحه */
+button#processButton {
+    padding: 15px 30px;
+}
+
+button#processButton:hover {
+    background-color: var(--button-hover-bg);
+}
+
+button#downloadButton {
+    background-color: #28a745;
+    color: white;
+    font-size: 1.1em;
+    padding: 15px 30px;
+}
+
+button#downloadButton:hover {
+    background-color: #218838;
+}
+
+.size-comparison {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* flex-wrap: wrap; /* این خط حذف شد تا همیشه در یک ردیف بمانند */
+    /* اگر در نهایت روی گوشی روی هم افتادن، min-width کادرها رو کم کن یا فونت رو کوچیکتر کن */
+}
+
+.size-box {
+    background-color: #ffffff; /* پس زمینه سفید برای کادرها */
+    padding: 15px; /* کمی پدینگ کمتر برای جایگیری بهتر */
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    min-width: 100px; /* حداقل عرض کمتر برای جایگیری بهتر روی موبایل‌های کوچک */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.size-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.size-box p {
+    margin-bottom: 5px; /* کمی کمتر */
+    font-size: 0.85em; /* فونت کمی کوچکتر */
+    color: #666;
+    font-weight: bold;
+}
+
+.size-box span {
+    font-size: 1.4em; /* کمی کوچکتر */
+    font-weight: bold;
+}
+
+/* رنگ‌های مخصوص برای هر کادر */
+.size-box.original-size span {
+    color: var(--original-size-color); /* قرمز برای حجم اصلی */
+}
+
+.size-box.compressed-size span {
+    color: var(--compressed-size-color); /* سبز برای حجم فشرده */
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent; /* ارتفاع فلش کمی کمتر */
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid var(--primary-color); /* طول فلش و رنگ آن */
+    margin: 0 5px; /* کمی فاصله افقی */
+}
+
+/* --- استایل‌های مودال --- */
+.modal {
+    display: none; /* مخفی به طور پیش فرض */
+    position: fixed; /* در جای خود ثابت می‌ماند */
+    z-index: 100; /* بالاترین لایه */
+    padding-top: 60px; /* فاصله از بالا */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* اگر محتوا بزرگتر بود اسکرول کند */
+    background-color: rgba(0,0,0,0.9); /* بک‌گراند مشکی با شفافیت */
+    direction: ltr; /* محتوای مودال را از چپ به راست نمایش دهد */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh; /* حداکثر 85 درصد ارتفاع viewport */
+    object-fit: contain; /* تصویر را به صورت کامل نمایش دهد */
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    border-radius: var(--border-radius-lg);
+}
+
+/* انیمیشن زوم برای مودال */
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* دکمه بستن مودال */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 101; /* بالاتر از محتوای مودال */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* متن زیر تصویر در مودال */
+.caption-text {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    font-size: 1.1em;
+}
+
+/* Media Queries برای ریسپانسیو بودن مودال */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: var(--default-padding);
+    margin-top: 40px;
+    border-top-left-radius: var(--border-radius-lg);
+    border-top-right-radius: var(--border-radius-lg);
+
+    display: flex;
+    justify-content: center; /* **این رو به center تغییر دادیم تا محتوای فوتر وسط باشه** */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    direction: rtl;
+    position: relative;
+    min-height: 100px;
+    padding-bottom: calc(var(--default-padding) + 10px);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* محتوای متن زیر هم قرار بگیرند */
+    align-items: center; /* **این رو به center تغییر دادیم تا متن‌ها وسط‌چین باشند** */
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.footer-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* **این رو به center تغییر دادیم تا متن‌ها وسط‌چین باشند** */
+    flex-grow: 1;
+    width: 100%;
+    padding-right: 0; /* پدینگ راست و چپ رو حذف می‌کنیم تا وسط‌چین رو بهم نزنه */
+    padding-left: 0;
+    box-sizing: border-box;
+}
+
+.footer-text-content p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    text-align: center; /* **تاکید بر تراز وسط برای متن‌ها** */
+}
+
+.english-copyright {
+    direction: ltr; /* این رو برای جهت متن نگه می‌داریم */
+    text-align: center; /* **تراز به وسط برای متن انگلیسی** */
+}
+
+.made-by-text {
+    font-size: 0.85em;
+    margin-top: 5px;
+    text-align: center; /* **تاکید بر تراز وسط** */
+}
+
+.zobbo-link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.zobbo-link:hover {
+    color: #0d7a0d;
+}
+
+.footer-logo-link {
+    position: absolute; /* جای‌گذاری مطلق */
+    top: 10px; /* فاصله از بالای فوتر */
+    left: 10px; /* **اینجا رو از right به left تغییر دادیم** */
+    display: block;
+    line-height: 0;
+    z-index: 10; /* مطمئن شو لوگو بالای بقیه عناصر باشه */
+}
+
+.footer-logo-linkz {
+    position: absolute; /* جای‌گذاری مطلق */
+    top: 70px; /* فاصله از بالای فوتر */
+    left: 10px; /* **اینجا رو از right به left تغییر دادیم** */
+    display: block;
+    line-height: 0;
+    z-index: 10; /* مطمئن شو لوگو بالای بقیه عناصر باشه */
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برش دایره‌ای تصاویر PNG - زیتول</title>
+    <link rel="stylesheet" href="css/cir.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <img src="zitool.jpg" alt="لوگوی زیتول " class="logo" />
+        <h1>زیتول - zitool</h1>
+        <p>ابزارهای کاربردی رایگان برای همه!</p>
+    </header>
+
+    <main>
+        <section class="circle-cropper-section">
+            <h2>برش دایره‌ای تصاویر</h2>
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                <label for="imageUpload" class="upload-button">انتخاب فایل</label>
+                <p class="drag-drop-text">یا فایل را اینجا بکشید و رها کنید</p>
+                <p id="fileName" class="file-name">فایلی انتخاب نشده است.</p>
+            </div>
+
+            <div class="image-processing-area" id="imageProcessingArea" style="display: none;">
+                <h3>پیش‌نمایش و برش</h3>
+                <div class="canvas-container">
+                    <canvas id="imageCanvas"></canvas>
+                </div>
+                <p class="instruction-text">تصویر را جابجا کنید تا برش دایره‌ای را تنظیم کنید.</p>
+                
+                <div class="button-group">
+                    <button id="cropButton">برش دایره‌ای</button>
+                    <button id="downloadButton" style="display: none;">دانلود PNG</button>
+                </div>
+            </div>
+
+            <p id="statusMessage" class="status-message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text-content">
+                <p>&copy; 2025 زیتول. تمامی حقوق محفوظ است.</p>
+                <p class="english-copyright">&copy; 2025 Zitool. All rights reserved.</p>
+                <p class="made-by-text">ساخته شده توسط <a href="https://zobbo.ir" target="_blank" class="zobbo-link">گروه زوبو</a></p>
+            </div>
+            <a href="index.html" class="footer-logo-link">
+                <img src="zitool.jpg" alt="لوگوی زیتول در فوتر" class="footer-logo">
+            </a>
+            <a href="https://zobbo.ir" class="footer-logo-linkz">
+                <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/zobbop.png" alt="لوگوی زوبو در فوتر" class="footer-logo">
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/cir.js"></script>
+</body>
+</html>

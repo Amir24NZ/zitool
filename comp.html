@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فشرده‌سازی و تغییر سایز تصاویر - زیتول</title>
+    <link rel="stylesheet" href="css/comp.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <img src="zitool.jpg" alt="لوگوی زیتول " class="logo" />
+        <h1>زیتول - zitool</h1>
+        <p>ابزارهای کاربردی رایگان برای همه!</p>
+        </header>
+
+    <main>
+        <section class="comp-section">
+            <h2>فایل خود را برای فشرده‌سازی و تغییر سایز آپلود کنید</h2>
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                <label for="imageUpload" class="upload-button">انتخاب فایل</label>
+                <p class="drag-drop-text">یا فایل را اینجا بکشید و رها کنید</p>
+                <p id="fileName" class="file-name">فایلی انتخاب نشده است.</p>
+            </div>
+
+            <div class="compression-settings" id="compressionSettings" style="display: none;">
+                <h3>تنظیمات فشرده‌سازی</h3>
+                <label for="compressionQuality">کیفیت فشرده‌سازی: <span id="qualityValue">80</span>%</label>
+                <input type="range" id="compressionQuality" min="10" max="90" value="80" step="5">
+            </div>
+
+            <div class="image-preview" id="imagePreview">
+                <img id="originalImage" src="#" alt="تصویر اصلی" style="display: none;">
+                <img id="compressedImage" src="#" alt="تصویر فشرده شده" style="display: none;">
+            </div>
+
+            <div class="button-group">
+                <button id="processButton" style="display: none;">فشرده‌سازی تصویر</button>
+                <button id="downloadButton" style="display: none;">دانلود تصویر</button>
+            </div>
+            
+            <div class="size-comparison" id="sizeComparison" style="display: none;">
+                <div class="size-box compressed-size">
+                    <p>حجم فشرده:</p>
+                    <span id="compressedSizeValue"></span>
+                </div>
+                <div class="arrow"></div>
+                <div class="size-box original-size">
+                    <p>حجم اصلی:</p>
+                    <span id="originalSizeValue"></span>
+                </div>
+                </div>
+
+            <p id="statusMessage" class="status-message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text-content">
+                <p>&copy; 2025 زیتول. تمامی حقوق محفوظ است.</p>
+                <p class="english-copyright">&copy; 2025 Zitool. All rights reserved.</p>
+                <p class="made-by-text">ساخته شده توسط <a href="https://zobbo.ir" target="_blank" class="zobbo-link">گروه زوبو</a></p>
+            </div>
+            <a href="index.html" class="footer-logo-link">
+                <img src="zitool.jpg" alt="لوگوی زیتول در فوتر" class="footer-logo">
+            </a>
+            <a href="https://zobbo.ir" class="footer-logo-linkz">
+                <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/zobbop.png" alt="لوگوی زوبو در فوتر" class="footer-logo">
+            </a>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption" class="caption-text"></div>
+    </div>
+
+    <script src="js/comp.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+/* css/style.css */
+
+:root {
+    /* رنگ‌های اصلی */
+    --primary-color: #1361b9; /* آبی - رنگ اصلی سایت */
+    --secondary-bg-color: #292f34; /* خاکستری تیره - بک‌گراند دوم */
+
+    /* بک‌گراند کلی صفحه */
+    --page-bg: #f8f8f8; /* یک رنگ روشن برای بک‌گراند اصلی صفحه (قابل تغییر) */
+
+    /* رنگ‌های هدر و فوتر */
+    --header-footer-bg: var(--primary-color); /* بک‌گراند هدر و فوتر همون آبی اصلی */
+    --header-footer-text: #ffffff; /* رنگ متن هدر و فوتر سفید */
+
+    /* رنگ‌های دکمه */
+    --button-bg: var(--primary-color); /* بک‌گراند دکمه همون آبی اصلی */
+    --button-text: #ffffff; /* رنگ متن دکمه سفید */
+    --button-hover-bg: #0f4c9c; /* یه مقدار تیره‌تر از آبی اصلی برای هاور */
+    --button-hover-text: #ffffff;
+
+    /* پدینگ و مارجین کلی */
+    --default-padding: 20px;
+    --section-padding: 50px;
+    --border-radius-lg: 15px; /* متغیر برای شعاع گوشه‌های گرد */
+}
+
+/* ریست استایل‌های پیش‌فرض مرورگر */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* می‌تونی از فونت‌های فارسی مثل 'Vazirmatn' یا 'Estedad' استفاده کنی */
+    direction: rtl; /* جهت متن از راست به چپ */
+    text-align: right; /* تراز متن به راست */
+    background-color: var(--page-bg);
+    color: #333; /* رنگ متن پیش‌فرض */
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: var(--default-padding);
+    text-align: center; /* عنوان سایت وسط باشه */
+    /* گوشه‌های پایین گرد */
+    border-bottom-left-radius: var(--border-radius-lg);
+    border-bottom-right-radius: var(--border-radius-lg);
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+  .logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    bottom: 20px;
+    border-radius: 100%;
+  }
+
+  @media (max-width: 600px) { /* میتونی این مقدار 600px رو تغییر بدی */
+    .logo {
+        width: 50px; /* اندازه کوچکتر برای موبایل */
+        height: 50px;
+        left: 10px; /* اگر نیاز بود موقعیت رو هم تغییر بده */
+        top: 10px;
+    }
+}
+
+main {
+    padding: var(--default-padding);
+    max-width: 1200px; /* حداکثر عرض محتوا */
+    margin: 0 auto; /* محتوا وسط صفحه باشه */
+}
+
+section {
+    padding: var(--section-padding) 0;
+    margin-bottom: 20px;
+    /* اعمال گوشه‌های گرد به همه سکشن‌ها به جز موارد خاص */
+    /* اگر یک سکشن بک‌گراند تمام عرض داشت، نیازی به این border-radius نیست */
+    /* border-radius: var(--border-radius-lg); */
+}
+
+/* Hero Section (بخش اصلی بالای صفحه) */
+.hero-section {
+    text-align: center;
+    padding-top: var(--section-padding); /* پدینگ بیشتر از بالا */
+    padding-bottom: var(--section-padding);
+}
+
+.hero-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto; /* برای راست به چپ */
+    margin-right: auto; /* برای راست به چپ */
+}
+
+
+/* Secondary Background Section */
+.secondary-background-section {
+    background-color: var(--secondary-bg-color);
+    color: #ffffff; /* متن روی بک‌گراند دوم سفید */
+    padding: var(--section-padding);
+    border-radius: var(--border-radius-lg); /* اعمال گوشه‌های گرد */
+}
+
+.secondary-background-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* گرید ریسپانسیو */
+    gap: 20px;
+    text-align: center; /* تراز کردن متن در آیتم‌ها */
+}
+
+.tool-item {
+    background-color: #ffffff;
+    color: var(--secondary-bg-color); /* متن آیتم به رنگ بک‌گراند دوم باشه */
+    padding: 25px;
+    border-radius: var(--border-radius-lg); /* اعمال گوشه‌های گرد */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    cursor: pointer; /* نشانگر موس برای آیتم‌ها */
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-item:hover {
+    transform: translateY(-5px); /* کمی آیتم بالا بیاد */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* سایه بیشتر بشه */
+}
+
+/* Call To Action Section */
+.cta-section {
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+
+
+/* دکمه‌ها */
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--border-radius-lg); /* اعمال گوشه‌های گرد */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* انیمیشن برای هاور و کلیک */
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px); /* کمی دکمه بالا بیاد */
+}
+
+button:active {
+    transform: translateY(0); /* دکمه برگرده سر جاش وقتی کلیک میشه */
+}
+
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: var(--default-padding);
+    margin-top: 40px;
+    border-top-left-radius: var(--border-radius-lg);
+    border-top-right-radius: var(--border-radius-lg);
+
+    display: flex;
+    justify-content: center; /* **این رو به center تغییر دادیم تا محتوای فوتر وسط باشه** */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    direction: rtl;
+    position: relative;
+    min-height: 100px;
+    padding-bottom: calc(var(--default-padding) + 10px);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* محتوای متن زیر هم قرار بگیرند */
+    align-items: center; /* **این رو به center تغییر دادیم تا متن‌ها وسط‌چین باشند** */
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.footer-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* **این رو به center تغییر دادیم تا متن‌ها وسط‌چین باشند** */
+    flex-grow: 1;
+    width: 100%;
+    padding-right: 0; /* پدینگ راست و چپ رو حذف می‌کنیم تا وسط‌چین رو بهم نزنه */
+    padding-left: 0;
+    box-sizing: border-box;
+}
+
+.footer-text-content p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    text-align: center; /* **تاکید بر تراز وسط برای متن‌ها** */
+}
+
+.english-copyright {
+    direction: ltr; /* این رو برای جهت متن نگه می‌داریم */
+    text-align: center; /* **تراز به وسط برای متن انگلیسی** */
+}
+
+.made-by-text {
+    font-size: 0.85em;
+    margin-top: 5px;
+    text-align: center; /* **تاکید بر تراز وسط** */
+}
+
+.zobbo-link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.zobbo-link:hover {
+    color: #0d7a0d;
+}
+
+.footer-logo-link {
+    position: absolute; /* جای‌گذاری مطلق */
+    top: 10px; /* فاصله از بالای فوتر */
+    left: 10px; /* **اینجا رو از right به left تغییر دادیم** */
+    display: block;
+    line-height: 0;
+    z-index: 10; /* مطمئن شو لوگو بالای بقیه عناصر باشه */
+}
+
+.footer-logo-linkz {
+    position: absolute; /* جای‌گذاری مطلق */
+    top: 70px; /* فاصله از بالای فوتر */
+    left: 10px; /* **اینجا رو از right به left تغییر دادیم** */
+    display: block;
+    line-height: 0;
+    z-index: 10; /* مطمئن شو لوگو بالای بقیه عناصر باشه */
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}

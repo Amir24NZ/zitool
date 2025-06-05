@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فینگلیش‌نویس و فارسی‌نویس - زیتول</title>
+    <link rel="stylesheet" href="css/fin.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <img src="zitool.jpg" alt="لوگوی زیتول " class="logo" />
+        <h1>زیتول - zitool</h1>
+        <p>ابزارهای کاربردی رایگان برای همه!</p>
+    </header>
+
+    <main>
+        <section class="converter-section">
+            <h2>فینگلیش‌نویس و فارسی‌نویس</h2>
+            <div class="mode-switch-container">
+                <button id="switchModeButton">تغییر حالت: فارسی به فینگلیش</button>
+            </div>
+            
+            <div class="input-output-area">
+                <label id="inputLabel" for="inputText">متن ورودی:</label>
+                <textarea id="inputText" placeholder="متن خود را اینجا وارد کنید..."></textarea>
+                <div class="button-group-converter">
+                    <button id="convertButton">تبدیل</button>
+                    <button id="copyButton">کپی</button>
+                </div>
+            </div>
+
+            <div class="input-output-area">
+                <label id="outputLabel" for="outputText">متن خروجی:</label>
+                <textarea id="outputText" placeholder="متن تبدیل شده اینجا نمایش داده می‌شود..." readonly></textarea>
+            </div>
+
+            <p id="statusMessage" class="status-message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text-content">
+                <p>&copy; 2025 زیتول. تمامی حقوق محفوظ است.</p>
+                <p class="english-copyright">&copy; 2025 Zitool. All rights reserved.</p>
+                <p class="made-by-text">ساخته شده توسط <a href="https://zobbo.ir" target="_blank" class="zobbo-link">گروه زوبو</a></p>
+            </div>
+            <a href="index.html" class="footer-logo-link">
+                <img src="zitool.jpg" alt="لوگوی زیتول در فوتر" class="footer-logo">
+            </a>
+            <a href="https://zobbo.ir" class="footer-logo-linkz">
+                <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/zobbop.png" alt="لوگوی زوبو در فوتر" class="footer-logo">
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/fin.js"></script>
+</body>
+</html>
