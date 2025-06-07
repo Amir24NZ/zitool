@@ -1,4 +1,4 @@
-/* css/cir.css - بر اساس comp.css */
+/* css/cp.css */
 
 :root {
     /* رنگ‌های اصلی زیتول */
@@ -77,36 +77,55 @@ main {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.circle-cropper-section {
+@media (max-width: 600px) {
+    main {
+        margin: 20px;
+    }
+}
+
+.color-image-generator-section {
     padding: var(--section-padding) var(--default-padding);
     text-align: center;
 }
 
-.circle-cropper-section h2 {
+.color-image-generator-section h2 {
     font-size: 1.8em;
     margin-bottom: 30px;
     color: var(--primary-color);
 }
 
-.upload-area {
-    border: 2px dashed #ccc;
-    padding: 30px;
-    border-radius: var(--border-radius-lg);
+.input-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
     margin-bottom: 30px;
-    cursor: pointer;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    padding: 25px;
+    background-color: #f0f0f0;
+    border-radius: var(--border-radius-lg);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.upload-area:hover {
-    border-color: var(--primary-color);
+.input-area label {
+    font-weight: bold;
+    color: #555;
+    width: 100%;
+    text-align: right;
+    max-width: 300px; /* محدود کردن عرض برای ورودی‌ها */
 }
 
-.upload-area.drag-over {
-    border-color: var(--primary-color);
-    background-color: #e0f0ff;
+.input-area input[type="text"],
+.input-area input[type="number"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    text-align: right; /* متن ورودی از راست به چپ */
 }
 
-.upload-button {
+.input-area button {
     background-color: var(--button-bg);
     color: var(--button-text);
     padding: 12px 25px;
@@ -114,115 +133,62 @@ main {
     border-radius: var(--border-radius-lg);
     cursor: pointer;
     font-size: 1.1em;
-    display: inline-block;
-    margin-bottom: 15px;
+    margin-top: 15px;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.upload-button:hover {
+.input-area button:hover {
     background-color: var(--button-hover-bg);
     transform: translateY(-2px);
 }
 
-.file-name {
-    font-size: 0.9em;
-    color: #666;
+.image-preview-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
 }
 
-.drag-drop-text {
-    font-size: 0.9em;
-    color: #888;
-    margin-top: 15px;
-    margin-bottom: 10px;
-}
-
-.image-processing-area {
-    margin-top: 20px;
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: var(--border-radius-lg);
-}
-
-.image-processing-area h3 {
-    margin-bottom: 15px;
-    color: #555;
-}
-
-.canvas-container {
-    width: 100%;
-    max-width: 400px; /* حداکثر اندازه برای کادر کانواس */
-    margin: 20px auto;
+#colorCanvas {
+    max-width: 100%;
+    height: auto;
     border: 1px solid #ddd;
     border-radius: var(--border-radius-lg);
-    overflow: hidden; /* برای اطمینان از اینکه تصویر از کادر خارج نمی‌شود */
-    position: relative; /* برای موقعیت‌دهی دایره برش */
-    background-color: #fff; /* پس زمینه سفید برای canvas */
-}
-
-canvas {
-    display: block;
-    width: 100%;
-    height: auto;
-    cursor: grab; /* نشانگر موس برای جابجایی */
-    touch-action: none; /* جلوگیری از اسکرول صفحه در زمان لمس و جابجایی */
-}
-
-.instruction-text {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-/* دکمه‌ها */
-button {
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    padding: 12px 25px;
-    border: none;
-    border-radius: var(--border-radius-lg);
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-    background-color: var(--button-hover-bg);
-    transform: translateY(-2px);
-}
-
-button:active {
-    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .button-group {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 15px;
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 
-button#downloadButton {
-    background-color: #28a745;
+.button-group button {
+    background-color: #28a745; /* سبز برای دانلود */
     color: white;
-    font-size: 1.1em;
-    padding: 15px 30px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button#downloadButton:hover {
+.button-group button:hover {
     background-color: #218838;
+    transform: translateY(-2px);
 }
 
 .status-message {
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 1em;
-    color: #666;
-    text-align: center;
+    color: #e74c3c;
+    font-weight: bold;
 }
 
+/* --- استایل‌های فوتر (از comp.css کپی شده) --- */
 footer {
     background-color: var(--header-footer-bg);
     color: var(--header-footer-text);
@@ -326,43 +292,49 @@ footer {
     align-items: center;
     padding: 0.7rem 0;
     z-index: 1000;
-  }
-  
-  .bottom-footer nav a {
+}
+
+.bottom-footer nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
-  }
-  
-  .bottom-footer nav a:hover {
+}
+
+.bottom-footer nav a:hover {
     color: var(--bg-secondary);
-  }
-  
-  .bottom-footer nav {
+}
+
+.bottom-footer nav {
     display: flex;
     gap: 40px;
-  }
-  
-  .bottom-footer a {
+}
+
+.bottom-footer a {
     text-decoration: none;
     color: #006A71;
-  }
-  
-  .nav-item {
+}
+
+.nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 14px;
-    
-  }
-  
-  .nav-item i {
+}
+
+.nav-item i {
     font-size: 20px;
     margin-bottom: 5px;
-  }
-  
-  .green-nav .nav-item i,
-  .green-nav .nav-item span {
+}
+
+.green-nav .nav-item i,
+.green-nav .nav-item span {
     color: greenyellow
-  }
+}
+
+/* Media Queries برای ریسپانسیو بودن */
+@media (max-width: 768px) {
+    .input-area input {
+        max-width: 100%;
+    }
+}

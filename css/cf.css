@@ -1,4 +1,4 @@
-/* css/cir.css - بر اساس comp.css */
+/* css/cf.css */
 
 :root {
     /* رنگ‌های اصلی زیتول */
@@ -59,11 +59,11 @@ header h1 {
     border-radius: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) { /* میتونی این مقدار 600px رو تغییر بدی */
     .logo {
-        width: 50px;
+        width: 50px; /* اندازه کوچکتر برای موبایل */
         height: 50px;
-        left: 10px;
+        left: 10px; /* اگر نیاز بود موقعیت رو هم تغییر بده */
         top: 10px;
     }
 }
@@ -77,12 +77,18 @@ main {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.circle-cropper-section {
+@media (max-width: 600px) {
+    main {
+        margin: 20px;
+    }
+}
+
+.color-picker-section {
     padding: var(--section-padding) var(--default-padding);
     text-align: center;
 }
 
-.circle-cropper-section h2 {
+.color-picker-section h2 {
     font-size: 1.8em;
     margin-bottom: 30px;
     color: var(--primary-color);
@@ -136,93 +142,82 @@ main {
     margin-bottom: 10px;
 }
 
-.image-processing-area {
-    margin-top: 20px;
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: var(--border-radius-lg);
+.image-display-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
 }
 
-.image-processing-area h3 {
+#imageCanvas {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: crosshair; /* نشانگر موس برای انتخاب رنگ */
+}
+
+.color-info-box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.color-info-box h3 {
     margin-bottom: 15px;
     color: #555;
 }
 
-.canvas-container {
-    width: 100%;
-    max-width: 400px; /* حداکثر اندازه برای کادر کانواس */
-    margin: 20px auto;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius-lg);
-    overflow: hidden; /* برای اطمینان از اینکه تصویر از کادر خارج نمی‌شود */
-    position: relative; /* برای موقعیت‌دهی دایره برش */
-    background-color: #fff; /* پس زمینه سفید برای canvas */
+.color-preview {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    background-color: #ffffff; /* رنگ پیش‌فرض قبل از انتخاب */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-canvas {
-    display: block;
-    width: 100%;
-    height: auto;
-    cursor: grab; /* نشانگر موس برای جابجایی */
-    touch-action: none; /* جلوگیری از اسکرول صفحه در زمان لمس و جابجایی */
+.color-info-box p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
 }
 
-.instruction-text {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 10px;
-    margin-bottom: 20px;
+.color-info-box span {
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
-/* دکمه‌ها */
-button {
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    padding: 12px 25px;
-    border: none;
-    border-radius: var(--border-radius-lg);
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-    background-color: var(--button-hover-bg);
-    transform: translateY(-2px);
-}
-
-button:active {
-    transform: translateY(0);
-}
-
-.button-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-button#downloadButton {
+.copy-button {
     background-color: #28a745;
     color: white;
-    font-size: 1.1em;
-    padding: 15px 30px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin: 5px;
+    transition: background-color 0.3s ease;
 }
 
-button#downloadButton:hover {
+.copy-button:hover {
     background-color: #218838;
 }
 
 .status-message {
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 1em;
-    color: #666;
-    text-align: center;
+    color: #e74c3c;
+    font-weight: bold;
 }
 
+
+/* --- استایل‌های فوتر (از comp.css کپی شده) --- */
 footer {
     background-color: var(--header-footer-bg);
     color: var(--header-footer-text);
@@ -326,43 +321,49 @@ footer {
     align-items: center;
     padding: 0.7rem 0;
     z-index: 1000;
-  }
-  
-  .bottom-footer nav a {
+}
+
+.bottom-footer nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
-  }
-  
-  .bottom-footer nav a:hover {
+}
+
+.bottom-footer nav a:hover {
     color: var(--bg-secondary);
-  }
-  
-  .bottom-footer nav {
+}
+
+.bottom-footer nav {
     display: flex;
     gap: 40px;
-  }
-  
-  .bottom-footer a {
+}
+
+.bottom-footer a {
     text-decoration: none;
     color: #006A71;
-  }
-  
-  .nav-item {
+}
+
+.nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 14px;
-    
-  }
-  
-  .nav-item i {
+}
+
+.nav-item i {
     font-size: 20px;
     margin-bottom: 5px;
-  }
-  
-  .green-nav .nav-item i,
-  .green-nav .nav-item span {
+}
+
+.green-nav .nav-item i,
+.green-nav .nav-item span {
     color: greenyellow
-  }
+}
+
+/* Media Queries برای ریسپانسیو بودن */
+@media (max-width: 768px) {
+    .image-display-area {
+        flex-direction: column;
+    }
+}

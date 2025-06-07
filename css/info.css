@@ -1,0 +1,353 @@
+/* css/info.css */
+
+:root {
+    /* رنگ‌های اصلی زیتول */
+    --primary-color: #1361b9; /* آبی */
+    --secondary-bg-color: #292f34; /* خاکستری تیره */
+    --page-bg: #f8f8f8; /* بک‌گراند صفحه */
+    --header-footer-bg: var(--primary-color);
+    --header-footer-text: #ffffff;
+    --button-bg: var(--primary-color);
+    --button-text: #ffffff;
+    --button-hover-bg: #0f4c9c;
+
+    /* شعاع گوشه‌ها */
+    --border-radius-lg: 15px;
+
+    /* پدینگ و مارجین کلی */
+    --default-padding: 20px;
+    --section-padding: 50px;
+
+    /* رنگ‌های مربوط به Changelog */
+    --changelog-item-bg: #ffffff;
+    --changelog-item-border: #e0e0e0;
+    --changelog-date-color: #666;
+    --changelog-text-color: #333;
+}
+
+/* ریست استایل‌های پیش‌فرض مرورگر */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    direction: rtl; /* جهت متن از راست به چپ */
+    text-align: right;
+    background-color: var(--page-bg);
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: var(--default-padding);
+    text-align: center;
+    border-bottom-left-radius: var(--border-radius-lg);
+    border-bottom-right-radius: var(--border-radius-lg);
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    bottom: 20px;
+    border-radius: 100%;
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 50px;
+        height: 50px;
+        left: 10px;
+        top: 10px;
+    }
+}
+
+main {
+    padding: var(--default-padding);
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+    main {
+        margin: 20px;
+    }
+}
+
+.info-section {
+    padding: var(--section-padding) var(--default-padding);
+    text-align: center;
+}
+
+.info-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.changelog-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* فاصله بین کادرها */
+    margin-top: 30px;
+}
+
+.changelog-item {
+    background-color: var(--changelog-item-bg);
+    border: 1px solid var(--changelog-item-border);
+    border-radius: var(--border-radius-lg);
+    padding: 25px;
+    text-align: right; /* متن داخلی از راست به چپ */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative; /* برای جایگذاری تاریخ */
+    overflow: hidden; /* مطمئن شویم چیزی بیرون نمی‌زند */
+}
+
+.changelog-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.changelog-date {
+    position: absolute;
+    top: 15px;
+    right: 15px; /* تاریخ در بالا و راست قرار گیرد */
+    font-size: 0.9em;
+    color: var(--changelog-date-color);
+    direction: ltr; /* جهت تاریخ از چپ به راست */
+    text-align: left;
+    font-weight: bold;
+    /* این خطوط جدید برای ریسپانسیو بودن تاریخ */
+    white-space: nowrap; /* جلوگیری از شکستن تاریخ */
+    z-index: 1; /* مطمئن شویم بالای محتواست */
+    background-color: var(--changelog-item-bg); /* پس‌زمینه برای عدم تداخل با متن */
+    padding: 2px 8px; /* کمی پدینگ برای زیبایی */
+    border-radius: 5px; /* گوشه‌های گرد برای تاریخ */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* سایه کوچک */
+}
+
+.changelog-content {
+    margin-top: 25px; /* فاصله از تاریخ */
+    font-size: 1.1em;
+    color: var(--changelog-text-color);
+    line-height: 1.8;
+    text-align: justify; /* متن منظم */
+}
+
+.changelog-content ul {
+    margin-top: 15px;
+    margin-right: 20px; /* برای لیست‌ها */
+    list-style-type: disc; /* نقطه برای آیتم‌های لیست */
+}
+
+.changelog-content li {
+    margin-bottom: 8px;
+}
+
+.changelog-content h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+
+.status-message {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* --- استایل‌های فوتر (از comp.css کپی شده) --- */
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: var(--default-padding);
+    margin-top: 40px;
+    border-top-left-radius: var(--border-radius-lg);
+    border-top-right-radius: var(--border-radius-lg);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    direction: rtl;
+    position: relative;
+    min-height: 100px;
+    padding-bottom: calc(var(--default-padding) + 6rem);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.footer-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+
+.footer-text-content p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.english-copyright {
+    direction: ltr;
+    text-align: center;
+}
+
+.made-by-text {
+    font-size: 0.85em;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.zobbo-link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.zobbo-link:hover {
+    color: #0d7a0d;
+}
+
+.footer-logo-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+    line-height: 0;
+    z-index: 10;
+}
+
+.footer-logo-linkz {
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    display: block;
+    line-height: 0;
+    z-index: 10;
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.bottom-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.7rem 0;
+    z-index: 1000;
+}
+
+.bottom-footer nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.bottom-footer nav a:hover {
+    color: var(--bg-secondary);
+}
+
+.bottom-footer nav {
+    display: flex;
+    gap: 40px;
+}
+
+.bottom-footer a {
+    text-decoration: none;
+    color: #006A71;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+}
+
+.nav-item i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.green-nav .nav-item i,
+.green-nav .nav-item span {
+    color: greenyellow
+}
+
+/* Media Queries برای ریسپانسیو بودن */
+@media (max-width: 768px) {
+    /* تغییرات برای نمایش بهتر در موبایل */
+    .changelog-date {
+        position: relative; /* موقعیت تاریخ را به نسبی تغییر می‌دهیم */
+        top: auto;
+        right: auto;
+        text-align: center; /* تاریخ را وسط‌چین می‌کنیم */
+        margin-bottom: 15px; /* فاصله از محتوا در موبایل بیشتر شود */
+        margin-top: 5px; /* کمی فاصله از بالای کادر */
+        display: block; /* تاریخ را به صورت بلاک نمایش می‌دهیم */
+        direction: rtl; /* جهت تاریخ دوباره از راست به چپ شود */
+        padding: 0; /* پدینگ اضافی را حذف می‌کنیم */
+        background-color: transparent; /* پس زمینه شفاف شود */
+        box-shadow: none; /* سایه حذف شود */
+    }
+    .changelog-content {
+        margin-top: 0; /* ریست کردن مارجین بالا در موبایل، چون تاریخ بالا رفته */
+        text-align: right; /* متن را از راست به چپ تراز می‌کنیم تا در عرض کم بهتر خوانده شود */
+        font-size: 1em; /* فونت کمی کوچکتر برای موبایل */
+    }
+    .changelog-content ul {
+        margin-right: 15px; /* مارجین لیست‌ها را کمی کمتر می‌کنیم */
+    }
+    .changelog-content h3 {
+        font-size: 1.1em; /* عنوان‌ها کمی کوچکتر شوند */
+        text-align: right; /* عنوان‌ها از راست به چپ تراز شوند */
+    }
+    .changelog-item {
+        padding: 20px; /* پدینگ کادرها کمی کمتر شود */
+    }
+}
