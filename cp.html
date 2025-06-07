@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فینگلیش‌نویس و فارسی‌نویس | تبدیل آنلاین - زیتول</title>
-  <meta name="description" content="با ابزار آنلاین و رایگان زیتول، متن خود را به راحتی از فینگلیش به فارسی و از فارسی به فینگلیش تبدیل کنید. سرعت بالا و دقت عالی.">
-  <meta name="keywords" content="فینگلیش‌نویس, فارسی‌نویس, تبدیل فینگلیش به فارسی, تبدیل فارسی به فینگلیش, مترجم فینگلیش, ابزار آنلاین, زیتول, فینگلیش">
+    <title>تولیدکننده عکس از رنگ | ساخت عکس تک‌رنگ - زیتول</title>
+  <meta name="description" content="با ابزار رایگان زیتول، عکس تک‌رنگ با کد رنگ HEX، RGB یا HSL دلخواه و ابعاد سفارشی بسازید. کاملاً آنلاین و سریع!">
+  <meta name="keywords" content="تولید عکس از رنگ, عکس تک‌رنگ, ساخت تصویر از کد رنگ, HEX, RGB, HSL, ابزار آنلاین تولید عکس, زیتول, ژنراتور رنگ">
   <meta name="author" content="ZOBBO">
 
-  <meta property="og:title" content="فینگلیش‌نویس و فارسی‌نویس - ابزار آنلاین زیتول">
-  <meta property="og:description" content="با ابزار رایگان زیتول، متن‌های فینگلیش را به فارسی و برعکس تبدیل کنید. سریع و آسان برای همه.">
+  <meta property="og:title" content="تولیدکننده عکس از رنگ - ابزار آنلاین زیتول">
+  <meta property="og:description" content="عکس تک‌رنگ با کد رنگ دلخواه و ابعاد سفارشی بسازید. ابزار رایگان و سریع برای تولید تصاویر از رنگ.">
   <meta property="og:image" content="https://zitool.ir/zitool.jpg">
-  <meta property="og:url" content="https://zitool.ir/fin.html">
+  <meta property="og:url" content="https://zitool.ir/cp.html">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="تبدیل فینگلیش و فارسی - زیتول">
-  <meta name="twitter:description" content="متن خود را به فینگلیش یا فارسی تبدیل کنید. ابزار آنلاین و رایگان فینگلیش‌نویس و فارسی‌نویس.">
+  <meta name="twitter:title" content="تولید عکس از رنگ - زیتول">
+  <meta name="twitter:description" content="با ابزار زیتول، عکس تک‌رنگ با هر کد رنگی که می‌خواهید بسازید. آنلاین و رایگان.">
   <meta name="twitter:image" content="https://zitool.ir/zitool.jpg">
 
-  <link rel="canonical" href="https://zitool.ir/fin.html" />
+  <link rel="canonical" href="https://zitool.ir/cp.html" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/fin.css?v=1.2">
+    <link rel="stylesheet" href="css/cp.css?v=1.2">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -34,24 +34,24 @@
     </header>
 
     <main>
-        <section class="converter-section">
-            <h2>فینگلیش‌نویس و فارسی‌نویس</h2>
-            <div class="mode-switch-container">
-                <button id="switchModeButton">تغییر حالت: فارسی به فینگلیش</button>
-            </div>
-            
-            <div class="input-output-area">
-                <label id="inputLabel" for="inputText">متن ورودی:</label>
-                <textarea id="inputText" placeholder="متن خود را اینجا وارد کنید..."></textarea>
-                <div class="button-group-converter">
-                    <button id="convertButton">تبدیل</button>
-                    <button id="copyButton">کپی</button>
-                </div>
+        <section class="color-image-generator-section">
+            <h2>عکس تک‌رنگ با کد رنگ دلخواه بسازید</h2>
+            <div class="input-area">
+                <label for="colorInput">کد رنگ (HEX, RGB, HSL):</label>
+                <input type="text" id="colorInput" placeholder="#RRGGBB, rgb(R,G,B), hsl(H,S,L)">
+                <label for="widthInput">عرض (پیکسل):</label>
+                <input type="number" id="widthInput" value="500" min="10" max="2000">
+                <label for="heightInput">ارتفاع (پیکسل):</label>
+                <input type="number" id="heightInput" value="500" min="10" max="2000">
+                <button id="generateButton">تولید عکس</button>
             </div>
 
-            <div class="input-output-area">
-                <label id="outputLabel" for="outputText">متن خروجی:</label>
-                <textarea id="outputText" placeholder="متن تبدیل شده اینجا نمایش داده می‌شود..." readonly></textarea>
+            <div class="image-preview-area" id="imagePreviewArea" style="display: none;">
+                <canvas id="colorCanvas"></canvas>
+                <div class="button-group">
+                    <button id="downloadPng">دانلود PNG</button>
+                    <button id="downloadJpeg">دانلود JPEG</button>
+                </div>
             </div>
 
             <p id="statusMessage" class="status-message"></p>
@@ -105,6 +105,6 @@
   </nav>
 </footer>
 
-    <script src="js/fin.js?v=1.2"></script>
+    <script src="js/cp.js?v=1.2"></script>
 </body>
 </html>

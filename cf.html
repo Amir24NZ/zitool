@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>برش دایره‌ای تصاویر PNG | ابزار رایگان آنلاین - زیتول</title>
-  <meta name="description" content="با ابزار آنلاین زیتول، عکس‌های خود را به‌صورت دایره‌ای و با فرمت PNG برش بدهید. ساده، رایگان و بدون نیاز به نصب!">
-  <meta name="keywords" content="برش دایره‌ای, برش عکس, ابزار PNG, عکس پروفایل گرد, ابزار آنلاین, ابزار گرافیکی, زیتول">
-  <meta name="author" content="Zobbo Group">
+    <title>انتخابگر رنگ از تصویر | ابزار کد رنگ HEX و RGB - زیتول</title>
+  <meta name="description" content="با ابزار انتخابگر رنگ زیتول، کد رنگ HEX، RGB و HSL را از هر تصویر دلخواه به‌راحتی دریافت کنید. کاملاً رایگان، سریع و آنلاین!">
+  <meta name="keywords" content="انتخاب رنگ, کد رنگ, HEX, RGB, ابزار رنگ آنلاین, انتخابگر رنگ از تصویر, ابزار طراحی, زیتول">
+  <meta name="author" content="ZOBBO">
 
-  <!-- Open Graph (شبکه‌های اجتماعی) -->
-  <meta property="og:title" content="برش دایره‌ای عکس - ابزار آنلاین زیتول">
-  <meta property="og:description" content="عکس دلخواه خود را به‌صورت گرد و فرمت PNG ببُر. ابزار رایگان و کاربردی برای همه!">
+  <!-- Open Graph (پیش‌نمایش در تلگرام، فیسبوک و...) -->
+  <meta property="og:title" content="انتخاب رنگ از تصویر - ابزار آنلاین زیتول">
+  <meta property="og:description" content="کد رنگ HEX و RGB را از عکس دلخواه بگیر. ابزار رایگان و سریع برای طراحان وب و گرافیست‌ها.">
   <meta property="og:image" content="https://zitool.ir/zitool.jpg">
-  <meta property="og:url" content="https://zitool.ir/cir.html">
+  <meta property="og:url" content="https://zitool.ir/cf.html">
   <meta property="og:type" content="website">
 
-  <!-- Twitter Card -->
+  <!-- Twitter Card (پیش‌نمایش در توییتر) -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="برش دایره‌ای تصاویر PNG - زیتول">
-  <meta name="twitter:description" content="برش دایره‌ای آنلاین و سریع برای تصاویر. ابزار رایگان طراحی بدون نیاز به نصب.">
+  <meta name="twitter:title" content="انتخاب رنگ از عکس - زیتول">
+  <meta name="twitter:description" content="کد رنگ HEX و RGB را از عکس دلخواه دریافت کن. ابزار آنلاین و رایگان برای طراحان.">
   <meta name="twitter:image" content="https://zitool.ir/zitool.jpg">
 
-  <link rel="canonical" href="https://zitool.ir/cir.html" />
+  <link rel="canonical" href="https://zitool.ir/cf.html" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/cir.css?v=1.2">
+  <link rel="stylesheet" href="css/cf.css?v=1.2">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -36,8 +36,8 @@
     </header>
 
     <main>
-        <section class="circle-cropper-section">
-            <h2>برش دایره‌ای تصاویر</h2>
+        <section class="color-picker-section">
+            <h2>فایل تصویر خود را برای انتخاب رنگ آپلود کنید</h2>
             <div class="upload-area" id="uploadArea">
                 <input type="file" id="imageUpload" accept="image/*" style="display: none;">
                 <label for="imageUpload" class="upload-button">انتخاب فایل</label>
@@ -45,16 +45,17 @@
                 <p id="fileName" class="file-name">فایلی انتخاب نشده است.</p>
             </div>
 
-            <div class="image-processing-area" id="imageProcessingArea" style="display: none;">
-                <h3>پیش‌نمایش و برش</h3>
-                <div class="canvas-container">
-                    <canvas id="imageCanvas"></canvas>
-                </div>
-                <p class="instruction-text">تصویر را جابجا کنید تا برش دایره‌ای را تنظیم کنید.</p>
-                
-                <div class="button-group">
-                    <button id="cropButton">برش دایره‌ای</button>
-                    <button id="downloadButton" style="display: none;">دانلود PNG</button>
+            <div class="image-display-area" id="imageDisplayArea" style="display: none;">
+                <canvas id="imageCanvas"></canvas>
+                <div class="color-info-box">
+                    <h3>اطلاعات رنگ</h3>
+                    <div class="color-preview" id="colorPreview"></div>
+                    <p>HEX: <span id="hexCode">--</span></p>
+                    <p>RGB: <span id="rgbCode">--</span></p>
+                    <p>HSL: <span id="hslCode">--</span></p>
+                    <button class="copy-button" data-copy="hexCode">کپی HEX</button>
+                    <button class="copy-button" data-copy="rgbCode">کپی RGB</button>
+                    <button class="copy-button" data-copy="hslCode">کپی HSL</button>
                 </div>
             </div>
 
@@ -76,7 +77,9 @@
                 <img src="https://raw.githubusercontent.com/Amir24NZ/zobbo/refs/heads/main/pic/zobbop.png" alt="لوگوی زوبو در فوتر" class="footer-logo">
             </a>
         </div>
-     <footer class="bottom-footer">
+    </footer>
+
+    <footer class="bottom-footer">
   <nav>
     <a href="index.html">
       <div class="nav-item">
@@ -107,6 +110,6 @@
   </nav>
 </footer>
 
-    <script src="js/cir.js?v=1.2"></script>
+    <script src="js/cf.js?v=1.2"></script>
 </body>
 </html>
