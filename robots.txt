@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zitool.ir/sitemap.xml
