@@ -5,15 +5,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('صفحه زیتول با موفقیت بارگذاری شد و آماده تعامل است!');
 
-    // مثال: اضافه کردن یک رویداد کلیک ساده به دکمه "شروع کنید"
-    const startButton = document.querySelector('.hero-section button');
-    if (startButton) {
-        startButton.addEventListener('click', () => {
-            alert('به دنیای ابزارهای زیتول خوش آمدید!');
-            // می‌تونی اینجا اسکرول کنی به بخش ابزارها یا هر کار دیگه
-        });
-    }
-
     // مثال: اضافه کردن یک رویداد کلیک به آیتم‌های ابزار (اختیاری)
     const toolItems = document.querySelectorAll('.tool-item');
     toolItems.forEach(item => {
@@ -23,12 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // مثال: اضافه کردن رویداد به دکمه "پیشنهاد دهید"
-    const suggestButton = document.querySelector('.cta-section button');
-    if (suggestButton) {
-        suggestButton.addEventListener('click', () => {
-            alert('از پیشنهاد شما متشکریم! به زودی فرم ارسال پیشنهاد در دسترس خواهد بود.');
-            // می‌تونی اینجا یک مودال (popup) برای فرم پیشنهاد باز کنی
-        });
-    }
 });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const link = document.getElementById("tools-link");
+    if (link) {
+      link.addEventListener("click", function (e) {
+        const isSamePage = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+        if (isSamePage) {
+          e.preventDefault();
+          const target = document.getElementById("tools");
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+    }
+  });

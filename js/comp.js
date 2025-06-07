@@ -244,3 +244,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const link = document.getElementById("tools-link");
+    if (link) {
+      link.addEventListener("click", function (e) {
+        const isSamePage = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+        if (isSamePage) {
+          e.preventDefault();
+          const target = document.getElementById("tools");
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
+    }
+  });
